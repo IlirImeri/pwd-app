@@ -49,10 +49,6 @@ body{
     overflow: hidden;
 }
 
-a {
-	margin-bottom: -3px
-}
-
 .container {
     width: 380px;
     margin: 10% auto;
@@ -132,4 +128,10 @@ a {
 
 .main span {
     position: relative;
+}
+
+.errorMessage {
+	margin-bottom: 20px;
+	color: red;
+	text-align: center;
 }

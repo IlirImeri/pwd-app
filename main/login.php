@@ -9,6 +9,19 @@
       <div class="header">
         <h1>Log In</h1>
       </div>
+      <?php
+      if (isset($_GET["error"])) {
+        if ($_GET["error"]=="emptyInput") {
+          echo "<p class=\"errorMessage\">Please fill in all the fields!</p>";
+        }
+        elseif ($_GET["error"]=="wronguserorpwd") {
+          echo "<p class=\"errorMessage\">Wrong Username or Password!</p>";
+        }
+        elseif ($_GET["error"]=="failedStmt") {
+          echo "<p class='errorMessage'>Something went wrong, please try again!</p>";
+        }
+      }
+      ?>
       <div class="main">
         <form action="./../php/login.php" method="post">
           <span>
@@ -17,7 +30,7 @@
           </span><br>
           <span>
             <i></i>
-            <input required type="text" placeholder="Password" name="inputPwd">
+            <input required type="password" placeholder="Password" name="inputPwd">
           </span><br>
           <button type="submit" name="submit">Submit</button>
           <div class="signUp">
@@ -25,16 +38,6 @@
           </div>
         </form>
       </div>
-      <?php
-      if (isset($_GET["error"])) {
-        if ($_GET["error"]=="emptyInput") {
-          echo "<p>Please fill in all the fields!</p>";
-        }
-        elseif ($_GET["error"]=="wronguserorpwd") {
-          echo "<p>Wrong Username or Password!</p>";
-        }
-      }
-      ?>
     </div>
   </body>
 </html>

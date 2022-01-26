@@ -9,6 +9,22 @@
       <div class="header">
         <h1>Sign Up</h1>
       </div>
+      <?php
+      if (isset($_GET["error"])) {
+        if ($_GET["error"]=="emptyInput") {
+          echo "<p class='errorMessage'>Please fill in all the fields!</p>";
+        }
+        elseif ($_GET["error"]=="usernameTaken") {
+          echo "<p class='errorMessage'>Username already taken!</p>";
+        }
+        elseif ($_GET["error"]=="failedStmt") {
+          echo "<p class='errorMessage'>Something went wrong, please try again!</p>";
+        }
+        elseif ($_GET["error"]=="none") {
+          echo "<p class='errorMessage'>Sign Up successful!</p>";
+        }
+      }
+      ?>
       <div class="main">
         <form action="./../php/signUp.php" method="post">
           <span>
@@ -17,7 +33,7 @@
           </span><br>
           <span>
             <i></i>
-            <input required type="text" placeholder="Password" name="inputPwd">
+            <input required type="password" placeholder="Password" name="inputPwd">
           </span><br>
           <button type="submit" name="submit">Submit</button>
           <div class="signUp">
@@ -25,22 +41,6 @@
           </div>
         </form>
       </div>
-      <?php
-      if (isset($_GET["error"])) {
-        if ($_GET["error"]=="emptyInput") {
-          echo "<p>Please fill in all the fields!</p>";
-        }
-        elseif ($_GET["error"]=="usernameTaken") {
-          echo "<p>Username already taken!</p>";
-        }
-        elseif ($_GET["error"]=="failedStmt") {
-          echo "<p>Something went wrong, please try again!</p>";
-        }
-        elseif ($_GET["error"]=="none") {
-          echo "<p>Sign Up successful!</p>";
-        }
-      }
-      ?>
     </div>
   </body>
 </html>
