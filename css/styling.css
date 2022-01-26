@@ -49,6 +49,10 @@ body{
     overflow: hidden;
 }
 
+a {
+	margin-bottom: -3px
+}
+
 .container {
     width: 380px;
     margin: 10% auto;
@@ -72,7 +76,7 @@ body{
     text-align: center;
 }
 
-.main input, button{
+.main input{
     width: 300px;
     height: 40px;
     border: none;
@@ -82,15 +86,38 @@ body{
     box-sizing: border-box;
     font-size: 15px;
     color: #333;
-    margin-bottom: 40px;
+    margin-bottom: 25px;
 }
 
 .main button {
+		color: #333;
+		width: 300px;
+		height: 40px;
+		border: none;
+		border-radius: 7px;
+		outline: none;
+		padding-left: 10px;
+		box-sizing: border-box;
+		font-size: 15px;
     padding-left: 0;
     background-color: #83acf1;
     letter-spacing: 1px;
     font-weight: bold;
-    margin-bottom: 70spx;
+    margin-bottom: 20px;
+}
+
+.signUp {
+	padding-bottom: 20px;
+}
+
+.link {
+	text-decoration: none;
+	color: #333;
+}
+
+.link:hover {
+	text-decoration: underline;
+	color: #83acf1;
 }
 
 .main button:hover {
