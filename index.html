@@ -2,20 +2,30 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="./css/styling.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <title>dPass</title>
   </head>
-  <body>
-    <h1>Welcome to dPass</h1>
-    <div>
-      <form action='./main/login.php'>
-        <input type='submit' value='LogIn'/>
-      </form>
-    </div>
-
-    <div>
-      <form action='./main/signUp.php'>
-        <input type='submit' value='Sign Up'/>
-      </form>
+  <body class="bg-image">
+    <h1 class="title">Keep your data safe</h1>
+    <div class="container" style="width: 600px; height: 400px">
+      <div class="header">
+        <h1>Welcome to dPass</h1>
+      </div>
+      <div class="main">
+        <div>
+          <form action='./main/login.php'>
+            <button type='submit' value='LogIn'>Log In</button>
+          </form>
+        </div>
+        <div>
+          <form action='./main/signUp.php'>
+            <button type='submit' value='Sign Up'>Sign Up</button>
+          </form>
+        </div>
+      </div>
     </div>
   </body>
 </html>

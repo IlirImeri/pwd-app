@@ -1,10 +1,13 @@
 <html lang="en" dir="ltr">
   <head>
     <link rel="stylesheet" type="text/css" href="./../css/styling.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"> 
     <meta charset="utf-8">
     <title>dPass</title>
   </head>
-  <body>
+  <body body class="bg-image">
     <div class="container">
       <div class="header">
         <h1>Sign Up</h1>

@@ -43,17 +43,29 @@ table {
 }
 
 body{
-    font-family: sans-serif;
-    background-image: url("");
     background-repeat: no-repeat;
     overflow: hidden;
+		font-family: 'Press Start 2P';
+}
+
+.bg-image {
+	background-image: url("./../images/bc4.jpg");
+	background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.title {
+	font-size: 70px;
+	margin: 120px 15%;
+	color: white;
+	text-shadow: 0 0 15px #333;
 }
 
 .container {
     width: 380px;
-    margin: 10% auto;
+    margin: 6% 15%;
     border-radius: 25px;
-    background-color: rgba(224, 216, 216, 0.3);
+    background-color: rgba(224, 216, 216, 0.7);
     box-shadow: 0 0 15px #333;
 }
 
@@ -94,11 +106,12 @@ body{
 		outline: none;
 		padding-left: 10px;
 		box-sizing: border-box;
-		font-size: 15px;
+		font-size: 20px;
     padding-left: 0;
     background-color: #83acf1;
     letter-spacing: 1px;
     font-weight: bold;
+		font-family: 'Press Start 2P';
     margin-bottom: 20px;
 }
 
@@ -124,6 +137,10 @@ body{
 .main input:hover {
     box-shadow: 2px 2px 5px #555;
     background-color: #ddd;
+}
+
+input::placeholder {
+	font-family: 'Press Start 2P';  
 }
 
 .main span {
