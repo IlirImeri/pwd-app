@@ -32,50 +32,40 @@ th, td {
     echo "<form action='logout.php'><input type='submit' value='UPDATE'/></form>";
     echo "<form action='logout.php'><input type='submit' value='SEARCH'/></form>";
 
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "pwd_app";
+    require_once('db-connect.php');
 
-    // Create connection
-    $conn = new mysqli($servername, $username, $password, $dbname);
-    // Check connection
-    if ($conn->connect_error) {
-      die("Connection failed: " . $conn->connect_error);
-    }
+    $sql = "SELECT ID, username, email, URL, password FROM dashboard WHERE owner = ?;";
 
-    //$sql = "SELECT ID, username, email, URL, password FROM dashboard";
-    $sql = "SELECT dashboard.ID, dashboard.username, dashboard.email, dashboard.URL, dashboard.password
-            FROM dashboard
-            INNER JOIN users ON dashboard.owner = users.ID;";
-    $result = $conn->query($sql);
-
-    if ($result->num_rows > 0) {
-      echo
-      "<table>
-        <tr>
-          <th>ID</th>
-          <th>Username</th>
-          <th>Email</th>
-          <th>URL</th>
-          <th>Password</th>
-        </tr>";
-      // output data of each row
-      while($row = $result->fetch_assoc()) {
+    if ($statement = mysqli_prepare($conn, $sql)) {
+      mysqli_stmt_bind_param($statement, 's', $_SESSION["ID"]);
+      mysqli_stmt_execute($statement);
+      $result = mysqli_stmt_get_result($statement);
+      if ($result->num_rows>0) {
         echo
-        "<tr>
-          <td>".$row["ID"]."</td>
-          <td>".$row["username"]."</td>
-          <td>".$row["email"]."</td>
-          <td>".$row["URL"]."</td>
-          <td>".$row["password"]."</td>
-        </tr>";
+        "<table>
+          <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>URL</th>
+            <th>Password</th>
+          </tr>";
+        while ($row = mysqli_fetch_assoc($result)) {
+          echo
+          "<tr>
+            <td>".$row["ID"]."</td>
+            <td>".$row["username"]."</td>
+            <td>".$row["email"]."</td>
+            <td>".$row["URL"]."</td>
+            <td>".$row["password"]."</td>
+          </tr>";
+        }
+        echo "</table>";
+      }else {
+        echo "0 results";
       }
-      echo "</table>";
-    } else {
-      echo "0 results";
+      mysqli_stmt_close($statement);
     }
-    $conn->close();
   }else {
     header("Location: ./../main/login.php");
     exit();
